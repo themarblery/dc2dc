@@ -1,0 +1,11 @@
+{
+	"phpcs.standard": "WordPress",
+	"phpcbf.executablePath": "./vendor/bin/phpcbf",
+	"phpcbf.standard": "./php-codesniffer-ruleset.xml",
+	"phpcbf.onsave": true,
+	"sasslint.configFile": ".sass-lint.yml",
+	"eslint.autoFixOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+}

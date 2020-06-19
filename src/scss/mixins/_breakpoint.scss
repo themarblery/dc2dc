@@ -1,0 +1,131 @@
+/**
+ * Map of breakpoint names and their pixel values.
+ */
+ $breakpoints: (
+	xs: 480px,
+	sm: 600px,
+	md: 782px,
+	lg: 960px,
+	xl: 1440px,
+	menu: 960px,
+);
+
+/**
+ * Function for getting breakpoint values from the $breakpoints map.
+ */
+@function get-breakpoint($breakpoint) {
+	@return map-get($breakpoints, $breakpoint);
+}
+
+/**
+ * Loopable array of breakpoint keys for creating modifier classes based on breakpoints.
+ */
+$breakpoint-keys: (xs, sm, md, lg, xl);
+
+/**
+ * All-Purpose Media Query Mixin
+ *
+ * This mixin is extremely flexible. It accepts keys from the $breakpoints map,
+ * pixel values for on the fly media queries, or unitless media queries like
+ * "orientation". This mixin should be used whenever possible in the place of
+ * hard-coded @media queries.
+ *
+ * Examples.
+ *
+ * // Min or Max
+ * @include breakpoint(sm) {...} // 640px and above
+ * @include breakpoint(sm, max) {...} // 639px and below
+ *
+ * // Nesting for Min and Max
+ * @include breakpoint(sm) { // min of 640px...
+ *    @include breakpoint(md, max) {...} // ...and max of 849px
+ * }
+ *
+ * // Custom px values
+ * @include breakpoint(984) {...} // 984
+ *
+ * // Non-px values
+ * @include breakpoint(landscape, orientation) {...} // @media (orientation: landscape)
+ */
+@mixin breakpoint($breakpoint, $direction: min) {
+	$breakpoint-value: get-breakpoint($breakpoint);
+	@if $breakpoint-value {
+		@if $direction == max {
+			@media (max-width: ($breakpoint-value - 1)) {
+				@content;
+			}
+		} @else if $direction == min {
+			@media (min-width: $breakpoint-value) {
+				@content;
+			}
+		} @else {
+			@media ($direction: $breakpoint-value) {
+				@content;
+			}
+		}
+	} @else {
+		@if $direction == max {
+			@media (max-width: $breakpoint) {
+				@content;
+			}
+		} @else if $direction == min {
+			@media (min-width: $breakpoint) {
+				@content;
+			}
+		} @else {
+			@media ($direction: $breakpoint) {
+				@content;
+			}
+		}
+	}
+}
+
+/**
+ * Mobile Menu Mixin
+ *
+ * Passes when less than the menu breakpoint or hover is not supported.
+ */
+@mixin mobile-menu {
+	@media (max-width: (get-breakpoint(menu) - 1)),
+	(hover: none) {
+		@content;
+	}
+}
+
+/**
+ * Desktop Menu Mixin
+ *
+ * Passes when greater than or equal to the menu breakpoint and  hover is supported.
+ * Secondarily, passes always in IE via -ms-high-contrast check.
+ */
+@mixin desktop-menu {
+	@media (min-width: get-breakpoint(menu)) and (hover: hover),
+	(min-width: get-breakpoint(menu)) and (-ms-high-contrast: none),
+	(min-width: get-breakpoint(menu)) and (-ms-high-contrast: active) {
+		@content;
+	}
+}
+
+/**
+ * Hover Mixin
+ *
+ * Passes if hover is supported or if on IE, which doesn't support the hover media query.
+ */
+@mixin hover {
+	@media (hover: hover),
+	(-ms-high-contrast: none),
+	(-ms-high-contrast: active) {
+		@content;
+	}
+}
+
+/**
+ * Touch Mixin
+ *
+ * Passes if hover is not supported.
+ */
+@mixin touch {
+	@media (hover: none) {
+		@content;
+	}
+}

@@ -1,0 +1,8 @@
+.header__titles {
+	width: 100%;
+	max-width: rem(300);
+
+	@include breakpoint(menu, max) {
+		margin: 0 auto;
+	}
+}

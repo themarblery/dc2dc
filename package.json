@@ -1,0 +1,89 @@
+{
+  "name": "embark",
+  "version": "2.0.3",
+  "description": "A WordPress starter project by emagine.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "chmod +x ./setup.sh",
+    "postinstall": "./setup.sh"
+  },
+  "repository": "git+https://github.com/emagineusa/embark.git",
+  "author": "emagine",
+  "license": "ISC",
+  "browser": {
+    "jquery-uniform": "./node_modules/jquery-uniform/lib/jquery.uniform.js",
+    "slick-carousel": "./node_modules/slick-carousel/slick/slick.js"
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/emagineusa/embark/issues"
+  },
+  "homepage": "https://github.com/emagineusa/embark#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "autoprefixer": "^9.7.4",
+    "babel-eslint": "^10.0.3",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.26.7",
+    "browserify": "^16.5.1",
+    "browserify-shim": "^3.8.14",
+    "core-js": "^3.6.4",
+    "dart-sass": "^1.25.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "fibers": "^4.0.2",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-inline-svg": "^1.2.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob-import": "^0.1.0",
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-svgo": "^2.1.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "gulp-wp-pot": "^2.3.6",
+    "gulp-zip": "^5.0.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {
+    "basiclightbox": "^5.0.2",
+    "del": "^4.1.1",
+    "es6-object-assign": "^1.1.0",
+    "es6-promise": "^4.2.5",
+    "font-awesome": "^4.7.0",
+    "fontfaceobserver": "^2.1.0",
+    "hoverintent": "^2.2.0",
+    "in-view": "^0.6.1",
+    "intersection-observer": "^0.7.0",
+    "jquery-uniform": "^2.2.2",
+    "nodelist-foreach-polyfill": "^1.2.0",
+    "normalize.css": "^8.0.0",
+    "object-fit-images": "^3.2.4",
+    "object-fit-videos": "^1.0.4",
+    "picturefill": "^3.0.3",
+    "slick-carousel": "^1.7.1",
+    "stickybits": "^3.7.7",
+    "vanilla-lazyload": "^12.4.0"
+  }
+}

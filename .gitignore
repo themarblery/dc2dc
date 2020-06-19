@@ -1,0 +1,6 @@
+# Global
+node_modules
+/vendor
+/wpcs
+.sass-cache/
+.DS_Store

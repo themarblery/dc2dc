@@ -1,0 +1,91 @@
+options:
+ merge-default-rules: false
+rules:
+ border-zero:
+  - 2
+  -
+   convention: none
+ brace-style:
+  - 2
+  -
+   style: 1tbs
+   allow-single-line: false
+ empty-args:
+  - 2
+  -
+   include: false
+ extends-before-declarations: true
+ extends-before-mixins: true
+ function-name-format:
+  - 2
+  -
+   allow-leading-underscore: true
+   convention: hyphenatedlowercase
+   convention-explanation: Because we need to have some kind of rule to follow and this feels right as of 06/01/2016
+ leading-zero:
+  - 2
+  -
+   include: false
+ mixins-before-declarations:
+  - 2
+  -
+   exclude:
+    - breakpoint
+    - jacket
+    - mobile-menu
+    - desktop-menu
+    - touch
+    - hover
+ nesting-depth:
+  - 2
+  -
+   max-depth: 4
+ no-duplicate-properties: 2
+ no-empty-rulesets: 2
+ no-ids: 2
+ no-invalid-hex: 2
+ no-misspelled-properties:
+    - 1
+    -
+      extra-properties:
+        - 'text-decoration-skip-ink'
+ no-qualifying-elements:
+  - 2
+  -
+   allow-element-with-attribute: true
+ no-trailing-zero: 2
+ no-transition-all: 2
+ no-url-protocols: 2
+ one-declaration-per-line: 2
+ placeholder-in-extend: 2
+ single-line-per-selector: 2
+ space-after-colon:
+  - 2
+  -
+   include: true
+ space-around-operator:
+  - 2
+  -
+   include: true
+ space-before-bang:
+  - 2
+  -
+   include: true
+ space-before-brace:
+  - 2
+  -
+   include: true
+ space-before-colon:
+  - 2
+  -
+   include: false
+ variable-name-format:
+  - 2
+  -
+   allow-leading-underscore: false
+   convention: hyphenatedbem
+   convention-explanation: Variables are required to be hyphenated and lowercase to promote improved readability compared to other formats.
+ zero-unit:
+  - 2
+  -
+   include: false

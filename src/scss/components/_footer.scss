@@ -1,0 +1,32 @@
+.site-footer {
+
+	.header__titles {
+		max-width: rem(250) !important;
+	}
+
+	.custom-logo-link {
+
+		#conley,
+		#for-congress,
+		#for-congrress,
+		#now {
+			fill: #fff;
+		}
+
+		#ri-map {
+			fill: $secondary-color;
+		}
+	}
+
+	&--3 {
+
+		.header__titles {
+			margin-top: rem(10);
+			margin-right: rem(60);
+		}
+	}
+}
+
+.footer-navigation__title {
+	display: none;
+}

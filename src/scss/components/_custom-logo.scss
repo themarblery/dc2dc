@@ -1,0 +1,19 @@
+$logo-height: 189.01;
+$logo-width: 827.24;
+$logo-aspect-ratio: percentage( $logo-height / $logo-width );
+
+.custom-logo-link {
+	display: block;
+	height: 0;
+	width: 100%;
+	padding-bottom: $logo-aspect-ratio;
+	position: relative;
+
+	img,
+	svg {
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+}

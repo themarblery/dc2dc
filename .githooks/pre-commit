@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Commands that should be run prior to allowing the commit of a set of changes.
+# Note: We are using a custom ruleset for PHP Code Sniffer. Update to standard ruleset if needed.
+#
+# Based off Steve Grunwell WP Enforcer pre-commit hook.
+# @see https://github.com/stevegrunwell/wp-enforcer/blob/develop/bin/hooks/pre-commit
+
+# List of Files to ignore
+# @link https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders
+IGNORE=*/fonts/*,*/images/*,*/assets/*,*/scss/*,*\.jpg*,*\.svg*,*\.png*,*\.json*,*\.js*,*\.md*,*\.mustache*,*\.ico*
+
+# Run PHP_CodeSniffer
+# @link https://github.com/squizlabs/PHP_CodeSniffer
+>&2 echo "## Running PHP_CodeSniffer with WordPress Coding Standards Rules. ##"
+
+FILES_TO_SNIFF=$(git diff --name-only --cached --diff-filter=ACMRTUXB 'src/*')
+
+if [ -z "$FILES_TO_SNIFF" ]; then
+	>&2 echo "## No files need to be run through PHP_CodeSniffer ##"
+else
+	# Iterate through all staged files within the "src" directory to check for errors against a custom PHP CodeSniffer rule set.
+	vendor/bin/phpcs -n --standard=./phpcs-ruleset.xml --ignore=$IGNORE $FILES_TO_SNIFF
+
+	# Deliver message based on the PHPCS results
+	if [[ $? != 0 ]]; then
+	>&2 echo "🚫  🚫  🚫"
+		>&2 echo "Errors found — correct the above reported mistakes before committing"
+		>&2 echo "Note: If any of the mistakes can be fixed automatically, consider running the following command:"
+		>&2 echo "vendor/bin/phpcbf -n --standard=WordPress <filename>/<directory>"
+	exit 1;
+	else
+		>&2 echo "🎉  No PHPCS errors were found! 🎉"
+	fi
+fi
+
+>&2 echo "## Running ESLint ##"
+
+# Define node path
+# Fixes issue where Git applications (Sourcetree, Tower, Kraken, etc) would be unsure of where node was installed.
+PATH=$PATH:/usr/local/bin:/usr/local/sbin
+
+# Iterate through each JavaScript file check against eslint
+# This expects that you have included the eslint npm module.
+git diff --name-only --cached --diff-filter=ACMRTUXB 'src/*.js' | xargs ./node_modules/.bin/eslint
+
+# Deliver message based on ESLint results
+if [[ $? != 0 ]]; then
+  >&2 echo "🚫  🚫  🚫"
+	>&2 echo "Errors found — correct the above reported mistakes before committing"
+	exit 1
+else
+  >&2 echo "🎉  No ESLint errors found! 🎉";
+fi
