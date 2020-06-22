@@ -1,0 +1,10 @@
+.wp-block-quote {
+
+	&[style*="color"] {
+		border-left-color: currentColor !important;
+
+		* {
+			color: inherit !important;
+		}
+	}
+}

@@ -1,0 +1,92 @@
+/**
+ * TYPOGRAPHY
+ * Contains all font-size and font-stack variables.
+ *
+ * @since 1.0.0
+ */
+
+/**
+ * Font Sizes
+ *
+ * @since 1.0.0
+ */
+
+// The font size set on the root html element.
+$base-font-size: 16;
+
+// The base line height determines the basic unit of vertical rhythm.
+$base-line-height: ( 30 / 16 );
+
+/**
+ * Font Stacks
+ *
+ * @since 1.0.0
+ */
+
+// Primary Font
+$primary-fallback-font-stack: Helvetica, Arial, sans-serif;
+$primary-font: "Open Sans";
+$primary-font-stack: $primary-font, $primary-fallback-font-stack;
+
+// Secondary Font
+$secondary-fallback-font-stack: Georgia, serif;
+$secondary-font: "Montserrat";
+$secondary-font-stack: $secondary-font, $secondary-fallback-font-stack;
+
+// The font sizes for h1-h6.
+$h1-font-size: 52;
+$h2-font-size: 44;
+$h3-font-size: 36;
+$h4-font-size: 30;
+$h5-font-size: 22;
+$h6-font-size: 14;
+
+// Smartphone specific font sizes for h1-h5.
+$h1-mobile-font-size: 36;
+$h2-mobile-font-size: 30;
+$h3-mobile-font-size: 26;
+$h4-mobile-font-size: 24;
+$h5-mobile-font-size: null;
+$h6-mobile-font-size: null;
+
+/**
+ * Heading Config
+ *
+ * @see ../config/variables/_typography.scss for heading size variables.
+ *
+ * @since 1.0.0
+ *
+ * @type el, font-size, line-height, margin, font-weight, font-style, color, mobile font-size
+ * Use false or null to leave a property blank.
+ */
+ $headings: (
+	(h1, $h1-font-size, 1.2, 1em 0 .5em, 700, null, null, $h1-mobile-font-size),
+	(h2, $h2-font-size, 1.2, 1em 0 .5em, 700, null, null, $h2-mobile-font-size),
+	(h3, $h3-font-size, 1.2, 1em 0 .5em, 700, null, null, $h3-mobile-font-size),
+	(h4, $h4-font-size, 1.4, 1em 0 .5em, 700, null, null, $h4-mobile-font-size),
+	(h5, $h5-font-size, 1.4, 1em 0 .5em, 700, null, null, $h5-mobile-font-size),
+	(h6, $h6-font-size, 1.4, 2em 0 1em, 700, null, null, $h6-mobile-font-size)
+);
+
+/**
+ * Paragraph Styles Map.
+ *
+ * Used for styling paragraph modifications and creating classes/placeholder classes.
+ *
+ * @since 1.0.0
+ *
+ * @type modifier, font-size, line-height, margin, font-weight, mobile-font-size
+ * Use false or null to leave a property blank.
+ */
+$p-size: $base-font-size;
+$p-size--small: $p-size * .75;
+$p-size--medium: $p-size * 1.25;
+$p-size--large: $p-size * 1.5;
+$p-size--huge: $p-size * 2;
+$paragraphs: (
+	( "base", $p-size, $base-line-height, 1em auto, null, 16 ),
+	( "has-small-font-size", $p-size--small, $base-line-height, 1em auto, null, null ),
+	( "has-medium-font-size", $p-size--medium, $base-line-height * .95, 1em auto, null, null ),
+	( "has-large-font-size", $p-size--large, $base-line-height * .9, 1em auto, null, $p-size--medium * 1.1 ),
+	( "has-huge-font-size", $p-size--huge, $base-line-height * .85, 1em auto, null, $p-size--large * 1.1 ),
+);

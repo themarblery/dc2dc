@@ -1,0 +1,81 @@
+p {
+	font-family: $primary-font-stack !important;
+
+	&:empty {
+		display: none;
+	}
+}
+
+/**
+ * Paragraph Config
+ *
+ * @see ../config/variables/_typography.scss for paragraph definitions.
+ *
+ * @since 1.0.0
+ *
+ * @type modifier, font-size, line-height, margin, font-weight, mobile-font-size
+ * Use false or null to leave a property blank.
+ */
+ @each $modifier, $font-size, $line-height, $margin, $font-weight, $mobile-font-size in $paragraphs {
+
+	@if ( $modifier == "base" ) {
+		p,
+		.p ,
+		%p {
+			@if $font-weight {
+				font-weight: $font-weight;
+			}
+			@if $font-size {
+				font-size: rem($font-size);
+			}
+			@if $line-height {
+				line-height: $line-height;
+			}
+			@if $margin {
+				margin: $margin;
+			}
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			@if $mobile-font-size {
+				@include breakpoint(sm, max) {
+					font-size: rem($mobile-font-size);
+				}
+			}
+		}
+	} @else {
+		.#{$modifier},
+		%#{$modifier} {
+			@if $font-size {
+				font-size: rem($font-size);
+			}
+			@if $line-height {
+				line-height: $line-height;
+			}
+			@if $margin {
+				margin: $margin;
+			}
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			@if $mobile-font-size {
+				@include breakpoint(sm, max) {
+					font-size: rem($mobile-font-size);
+				}
+			}
+		}
+	}
+}
+

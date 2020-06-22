@@ -1,0 +1,49 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $secondary-font-stack !important;
+}
+
+/**
+ * Headings
+ *
+ * @see ../config/variables/_typography.scss for heading font-size variables.
+ *
+ * @since 1.0.0
+ */
+
+ @each $el, $font-size, $line-height, $margin, $font-weight, $font-style, $color, $mobile-font-size in $headings {
+
+	#{$el},
+	.#{$el},
+	%#{$el} {
+		@if $color {
+			color: $color;
+		}
+		@if $font-size {
+			font-size: rem($font-size);
+		}
+		@if $font-style {
+			font-style: $font-style;
+		}
+		@if $font-weight {
+			font-weight: $font-weight;
+		}
+		@if $line-height {
+			line-height: $line-height;
+		}
+		@if $margin {
+			margin: $margin;
+		}
+
+		// Responsive considerations
+		@if $mobile-font-size {
+			@include breakpoint(md, max) {
+				font-size: em($mobile-font-size);
+			}
+		}
+	}
+}

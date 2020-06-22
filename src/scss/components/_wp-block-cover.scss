@@ -1,0 +1,34 @@
+.wp-block-cover {
+
+	&.blur {
+		overflow: hidden;
+
+		&::before {
+			z-index: 2 !important;
+		}
+
+		&::after {
+			content: " ";
+			background-image: inherit;
+			filter: blur(16px);
+			position: absolute;
+			top: rem(-20);
+			right: rem(-20);
+			bottom: rem(-20);
+			left: rem(-20);
+			z-index: 1;
+		}
+
+		.wp-block-cover__inner-container {
+			position: relative;
+			z-index: 3;
+		}
+
+		&.has-parallax {
+
+			&::after {
+				background-attachment: fixed;
+			}
+		}
+	}
+}

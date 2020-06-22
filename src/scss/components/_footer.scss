@@ -6,6 +6,7 @@
 
 	.custom-logo-link {
 
+		// sass-lint:disable no-ids
 		#conley,
 		#for-congress,
 		#for-congrress,
@@ -16,6 +17,7 @@
 		#ri-map {
 			fill: $secondary-color;
 		}
+		// sass-lint:enable no-ids
 	}
 
 	&--3 {
