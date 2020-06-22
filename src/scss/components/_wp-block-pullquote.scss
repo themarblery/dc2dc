@@ -1,0 +1,68 @@
+.wp-block-pullquote {
+
+	p {
+		font-style: normal;
+		font-size: rem(24) !important;
+
+		@include breakpoint(md) {
+			font-size: rem(32) !important;
+		}
+	}
+
+	.has-text-color {
+
+		*:not(.has-inline-color) {
+			color: inherit !important;
+		}
+	}
+
+	&.is-style-solid-color {
+		margin-top: rem(100);
+		margin-bottom: rem(100);
+		position: relative;
+
+		&::before {
+			content: "";
+			background: $stripes;
+			background-color: inherit;
+			position: absolute;
+			top: rem(-50);
+			left: 50%;
+			bottom: rem(-50);
+			width: 100vw;
+			z-index: -1;
+			transform: translateX(-50%);
+		}
+	}
+
+	&:not(.is-style-solid-color) {
+
+		.entry-content > & {
+			margin-top: rem(40);
+			margin-bottom: rem(40);
+			padding-top: rem(40) !important;
+			padding-bottom: rem(40) !important;
+			position: relative;
+
+			&::before,
+			&::after {
+				content: " ";
+				background: $tertiary-color;
+				height: rem(4);
+				width: 100%;
+				max-width: rem(608);
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			&::before {
+				top: 0;
+			}
+
+			&::after {
+				bottom: 0;
+			}
+		}
+	}
+}

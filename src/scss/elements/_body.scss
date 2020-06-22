@@ -1,3 +1,7 @@
 body {
-	font-family: $primary-font-stack !important;
+	font-family: $primary-font-stack;
+
+	* {
+		font-family: $primary-font-stack !important;
+	}
 }

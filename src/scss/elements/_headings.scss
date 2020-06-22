@@ -1,12 +1,3 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: $secondary-font-stack !important;
-}
-
 /**
  * Headings
  *
@@ -42,7 +33,7 @@ h6 {
 		// Responsive considerations
 		@if $mobile-font-size {
 			@include breakpoint(md, max) {
-				font-size: em($mobile-font-size);
+				font-size: rem($mobile-font-size);
 			}
 		}
 	}

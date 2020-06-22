@@ -1,9 +1,18 @@
 .wp-block-quote {
 
+	p {
+		font-style: normal;
+		font-size: rem(24) !important;
+
+		@include breakpoint(md) {
+			font-size: rem(32) !important;
+		}
+	}
+
 	&[style*="color"] {
 		border-left-color: currentColor !important;
 
-		* {
+		*:not(.has-inline-color) {
 			color: inherit !important;
 		}
 	}

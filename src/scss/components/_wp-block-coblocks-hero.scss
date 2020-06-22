@@ -1,0 +1,16 @@
+.wp-block-coblocks-hero {
+
+	&__inner {
+
+		&.has-center-content {
+
+			.wp-block-coblocks-hero__content {
+				margin: 0 auto;
+			}
+		}
+
+		&.is-fullscreen {
+			height: calc(100vh - #{rem(120)});
+		}
+	}
+}

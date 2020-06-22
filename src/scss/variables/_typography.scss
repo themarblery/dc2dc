@@ -25,12 +25,12 @@ $base-line-height: ( 30 / 16 );
 
 // Primary Font
 $primary-fallback-font-stack: Helvetica, Arial, sans-serif;
-$primary-font: "Open Sans";
+$primary-font: "Roboto";
 $primary-font-stack: $primary-font, $primary-fallback-font-stack;
 
 // Secondary Font
-$secondary-fallback-font-stack: Georgia, serif;
-$secondary-font: "Montserrat";
+$secondary-fallback-font-stack: $primary-fallback-font-stack;
+$secondary-font: "Roboto";
 $secondary-font-stack: $secondary-font, $secondary-fallback-font-stack;
 
 // The font sizes for h1-h6.

@@ -1,5 +1,26 @@
 .wp-block-cover {
 
+	&__inner-container {
+		padding-top: 9vw !important;
+		padding-bottom: 9vw !important;
+
+		@include breakpoint(lg) {
+			padding-top: rem(100) !important;
+			padding-bottom: rem(100) !important;
+		}
+
+		> * {
+
+			&:first-child {
+				margin-top: 0 !important;
+			}
+
+			&:last-child {
+				margin-bottom: 0 !important;
+			}
+		}
+	}
+
 	&.blur {
 		overflow: hidden;
 
@@ -19,9 +40,13 @@
 			z-index: 1;
 		}
 
+		.wp-block-cover__gradient-background {
+			z-index: 3;
+		}
+
 		.wp-block-cover__inner-container {
 			position: relative;
-			z-index: 3;
+			z-index: 4;
 		}
 
 		&.has-parallax {

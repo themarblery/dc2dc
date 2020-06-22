@@ -1,0 +1,14 @@
+.alignwide,
+.alignfull {
+	margin-top: 9vw !important;
+	margin-bottom: 9vw !important;
+
+	@include breakpoint(lg) {
+		margin-top: rem(100) !important;
+		margin-bottom: rem(100) !important;
+	}
+
+	&:first-child {
+		margin-top: 0 !important;
+	}
+}

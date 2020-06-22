@@ -1,3 +1,7 @@
 .wp-block-embed {
 	box-shadow: 0 1.5vw 3vw -.7vw rgba(black, .125);
+
+	@include breakpoint(sm, max) {
+		max-width: calc(100vw - #{rem(40)}) !important;
+	}
 }
