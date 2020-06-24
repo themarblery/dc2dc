@@ -13,6 +13,8 @@
 	%#{$el} {
 		@if $color {
 			color: $color;
+		} @else {
+			color: $gray-xd;
 		}
 		@if $font-size {
 			font-size: rem($font-size);

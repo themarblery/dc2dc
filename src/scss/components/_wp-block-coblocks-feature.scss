@@ -1,0 +1,10 @@
+.wp-block-coblocks-feature {
+
+	&__inner {
+
+		&.has-background {
+			flex: 1 0 auto;
+			height: 100%;
+		}
+	}
+}

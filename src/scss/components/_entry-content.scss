@@ -1,0 +1,16 @@
+.entry-content {
+
+	ul,
+	ol {
+		font-size: rem($base-font-size);
+		line-height: 1.5;
+		padding-left: rem(5);
+
+		li {
+
+			&:not(:first-child) {
+				margin-top: 1em;
+			}
+		}
+	}
+}

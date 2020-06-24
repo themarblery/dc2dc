@@ -270,7 +270,7 @@ gulp.task('i18n', () => {
 	return gulp.src(globs.src.phpFiles)
 		.pipe(wpPot({
 			domain: packagejson.name,
-			package: 'Embark',
+			package: 'dc2dc',
 		}))
 		.pipe(gulp.dest(`${build.languages}/${packagejson.name}.pot`));
 });
