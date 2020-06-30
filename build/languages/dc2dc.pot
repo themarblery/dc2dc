@@ -13,3 +13,14 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: src/functions/acf.php:21
+msgid "DC2DC Blocks"
+msgstr ""
+
+#: src/functions/acf.php:73
+msgid "Child Page List"
+msgstr ""
+
+#: src/functions/acf.php:74
+msgid "Show the child pages for the selected page in a list."
+msgstr ""

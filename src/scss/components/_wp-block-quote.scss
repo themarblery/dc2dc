@@ -16,4 +16,17 @@
 			color: inherit !important;
 		}
 	}
+
+	&.is-style-small {
+
+		p {
+			font-weight: normal !important;
+			font-size: rem(21) !important;
+			line-height: 1.6;
+		}
+
+		cite {
+			margin-top: 0 !important;
+		}
+	}
 }

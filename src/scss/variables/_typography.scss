@@ -15,7 +15,7 @@
 $base-font-size: 16;
 
 // The base line height determines the basic unit of vertical rhythm.
-$base-line-height: ( 30 / 16 );
+$base-line-height: 1.7;
 
 /**
  * Font Stacks
@@ -86,7 +86,7 @@ $p-size--huge: $p-size * 2;
 $paragraphs: (
 	( "base", $p-size, $base-line-height, 1em auto, null, 16 ),
 	( "has-small-font-size", $p-size--small, $base-line-height, 1em auto, null, null ),
-	( "has-medium-font-size", $p-size--medium, $base-line-height * .95, 1em auto, null, null ),
+	( "has-medium-font-size", $p-size--medium, $base-line-height * .95, 1em auto, null, 18 ),
 	( "has-large-font-size", $p-size--large, $base-line-height * .9, 1em auto, null, $p-size--medium * 1.1 ),
 	( "has-huge-font-size", $p-size--huge, $base-line-height * .85, 1em auto, null, $p-size--large * 1.1 ),
 );

@@ -7,17 +7,20 @@
  */
 
 /**
- * Enqueues CSS files.
- *
- * @since 1.0.0
- *
- * @link  https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
- * @link  https://developer.wordpress.org/reference/functions/wp_enqueue_style/
+ * Enqueues front-end assets.
  */
-function dc2dc_enqueue_styles() {
-	wp_enqueue_style( 'dc2dc-css', get_stylesheet_directory_uri() . '/css/main.css', array( 'go-style' ), '1.0.0' );
+function dc2dc_enqueue_block_assets() {
+	wp_enqueue_style( 'dc2dc-css', get_stylesheet_directory_uri() . '/css/main.css', array( 'go-style' ), DC2DC_THEME_VERSION );
 }
-add_action( 'enqueue_block_assets', 'dc2dc_enqueue_styles' );
+add_action( 'enqueue_block_assets', 'dc2dc_enqueue_block_assets' );
+
+/**
+ * Enqueues block editor assets.
+ */
+function dc2dc_enqueue_block_editor_assets() {
+	wp_enqueue_script( 'dc2dc-editor-js', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-i18n', 'wp-edit-post', 'wp-data', 'wp-editor' ), DC2DC_THEME_VERSION, true );
+}
+add_action( 'enqueue_block_editor_assets', 'dc2dc_enqueue_block_editor_assets' );
 
 /**
  * Update font family for modern design.

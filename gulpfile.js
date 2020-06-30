@@ -202,7 +202,6 @@ gulp.task('css:process', () => processSCSS(globs.src.scss, build.css));
 
 gulp.task('css', gulp.series('css:clean', 'css:process'));
 
-
 /**
  * JavaScript
  *
@@ -216,7 +215,6 @@ gulp.task('js:process', (done) => {
 });
 
 gulp.task('js', gulp.series('js:clean', 'js:process'));
-
 
 /**
  * SVG Tasks
@@ -257,7 +255,6 @@ gulp.task('svg:copy', () => {
 });
 
 gulp.task('svg', gulp.series('svg:clean', 'svg:copy'));
-
 
 /**
  * Generate .pot file to hand off to translators
@@ -348,7 +345,6 @@ gulp.task('watch', (done) => {
 	return done();
 });
 
-
 // --------------------------------
 // Build Task
 // --------------------------------
@@ -363,7 +359,6 @@ gulp.task('build', gulp.series(
 	'acf',
 	'zip',
 ));
-
 
 // --------------------------------
 // Default Task

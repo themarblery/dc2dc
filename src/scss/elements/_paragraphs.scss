@@ -43,7 +43,7 @@ p {
 			}
 
 			@if $mobile-font-size {
-				@include breakpoint(sm, max) {
+				@include breakpoint(md, max) {
 					font-size: rem($mobile-font-size);
 				}
 			}
@@ -70,7 +70,7 @@ p {
 			}
 
 			@if $mobile-font-size {
-				@include breakpoint(sm, max) {
+				@include breakpoint(md, max) {
 					font-size: rem($mobile-font-size);
 				}
 			}
