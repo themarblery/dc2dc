@@ -1,0 +1,9 @@
+.primary-menu {
+
+	.sub-menu {
+
+		@include breakpoint(menu) {
+			width: rem(250);
+		}
+	}
+}

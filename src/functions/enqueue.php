@@ -10,7 +10,8 @@
  * Enqueues front-end assets.
  */
 function dc2dc_enqueue_block_assets() {
-	wp_enqueue_style( 'dc2dc-css', get_stylesheet_directory_uri() . '/css/main.css', array(), DC2DC_THEME_VERSION );
+	$deps = is_admin() ? array() : array( 'go-style' );
+	wp_enqueue_style( 'dc2dc-css', get_stylesheet_directory_uri() . '/css/main.css', $deps, DC2DC_THEME_VERSION );
 }
 add_action( 'enqueue_block_assets', 'dc2dc_enqueue_block_assets', 9999 );
 
