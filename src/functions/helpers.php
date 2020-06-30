@@ -133,7 +133,7 @@ function dc2dc_image( $img_id, $args = array() ) {
 		/**
 		 * Safely output image markup using wp_kses.
 		 */
-		echo wp_kses( $img_html, apply_filters( 'em_image_allowed_html', $allowed_html ) );
+		echo wp_kses( $img_html, apply_filters( 'dc2dc_image_allowed_html', $allowed_html ) );
 	}
 }
 
@@ -166,5 +166,100 @@ function dc2dc_file_get_contents( $path = '' ) {
 		 * Use WP filesystem to get the svg's contents.
 		 */
 		return $wp_filesystem->get_contents( $path );
+	}
+}
+
+/**
+ * Check if passed link is external.
+ *
+ * Intended to determine if a link should have a link `target` attribute.
+ * Used by `dc2dc_link_target( $url )` function.
+ *
+ * @param    string $url   Valid URL.
+ * @return   boolean       True for external. False for internal.
+ */
+function dc2dc_is_external_url( $url ) {
+	$link_url = wp_parse_url( $url );
+	$home_url = wp_parse_url( home_url() );
+
+	// Fixes bug if you pass in hash links.
+	if ( empty( $link_url['host'] ) ) {
+		return false;
+	}
+
+	if ( ! empty( $link_url['path'] ) && substr( $link_url['path'], -4 ) === '.pdf' ) {
+		return true;
+	}
+
+	/**
+	 * Remove "www." from beginning of url hosts to normalize results.
+	 *
+	 * EX: If $link_url['host'] is example.com and $home_url['host']
+	 * is www.example.com, they will be treated as not equal, and
+	 * this function will return true, when it should return false.
+	 */
+	$link_host = preg_replace( '/^www./', '', $link_url['host'] );
+	$home_host = preg_replace( '/^www./', '', $home_url['host'] );
+
+	return $link_host !== $home_host;
+}
+
+/**
+ * Determines the link `target` attribute safely.
+ *
+ * Adds the `rel="noopener noreferrer"` attribute in addition to the
+ * link `target` attribute if the supplied URL is not on the same host
+ * as this WordPress install.
+ *
+ * Helpful for avoiding the `target="_blank"` phishing hack.
+ *
+ * @link     https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/
+ * @see      dc2dc_is_external_url( $url )
+ *
+ * @param    string  $url               Valid URL.
+ * @param    boolean $force_new_window  Whether to force the link to open in a new window.
+ * @return   string                     HTML target attributes if true. Empty string if false.
+ */
+function dc2dc_get_link_target_attr( $url, $force_new_window = false ) {
+	return dc2dc_is_external_url( $url ) || $force_new_window ? 'target="_blank" rel="noopener noreferrer"' : '';
+}
+
+/**
+ * Get href and possible target and rel attributes for use on an anchore element.
+ *
+ * @param string  $url Valid URL.
+ * @param boolean $force_new_window Whether to force the link to open in a new window.
+ * @param boolean $echo Whether to ouput or return the attributes.
+ * @return string/void
+ */
+function dc2dc_href_attrs( $url, $force_new_window = false, $echo = true ) {
+	$target = dc2dc_get_link_target_attr( $url, $force_new_window );
+	$attrs  = 'href="' . $url . '"' . ( $target ? ' ' . $target : '' );
+	if ( $echo ) {
+		echo wp_kses_post( $attrs );
+	} else {
+		return $attrs;
+	}
+}
+
+/**
+ * Given an array of classes, output or return the classes
+ * as a single string with a space between each class.
+ *
+ * @param array   $classes Array of classes.
+ * @param boolean $echo Whether to echo or return.
+ * @return void|string
+ */
+function dc2dc_classes( $classes = array(), $echo = true ) {
+	// Convert $classes to array if it isn't already.
+	if ( is_string( $classes ) ) {
+		$classes = explode( ' ', $classes );
+	}
+
+	// Echo or return the class string.
+	if ( $echo ) {
+		echo esc_attr( implode( ' ', $classes ) );
+	} else {
+		return implode( ' ', $classes );
 	}
 }

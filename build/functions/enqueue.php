@@ -10,9 +10,9 @@
  * Enqueues front-end assets.
  */
 function dc2dc_enqueue_block_assets() {
-	wp_enqueue_style( 'dc2dc-css', get_stylesheet_directory_uri() . '/css/main.css', array( 'go-style' ), DC2DC_THEME_VERSION );
+	wp_enqueue_style( 'dc2dc-css', get_stylesheet_directory_uri() . '/css/main.css', array(), DC2DC_THEME_VERSION );
 }
-add_action( 'enqueue_block_assets', 'dc2dc_enqueue_block_assets' );
+add_action( 'enqueue_block_assets', 'dc2dc_enqueue_block_assets', 9999 );
 
 /**
  * Enqueues block editor assets.
@@ -20,7 +20,7 @@ add_action( 'enqueue_block_assets', 'dc2dc_enqueue_block_assets' );
 function dc2dc_enqueue_block_editor_assets() {
 	wp_enqueue_script( 'dc2dc-editor-js', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-i18n', 'wp-edit-post', 'wp-data', 'wp-editor' ), DC2DC_THEME_VERSION, true );
 }
-add_action( 'enqueue_block_editor_assets', 'dc2dc_enqueue_block_editor_assets' );
+add_action( 'enqueue_block_editor_assets', 'dc2dc_enqueue_block_editor_assets', 9999 );
 
 /**
  * Update font family for modern design.

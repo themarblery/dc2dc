@@ -1,0 +1,44 @@
+.dc2dc-child-page-links {
+
+	&__inner {
+		background: repeating-linear-gradient(45deg,rgba(black,.05),rgba(black,.05) 1px,rgba(black,.025) 2px,rgba(black,.025) 4px);
+		border: rem(1) solid $gray-l;
+		margin: 0 auto !important;
+		padding: 3vw;
+		text-align: center;
+	}
+
+	h2 {
+		margin-top: 0 !important;
+	}
+
+	ul,
+	li {
+		list-style: none;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	ul {
+		font-size: 0;
+		margin: rem(-5) !important;
+	}
+
+	li {
+		padding: rem(5) !important;
+
+		.wp-block-button {
+
+			&__link {
+
+				@include breakpoint(sm, max) {
+					display: block;
+				}
+			}
+		}
+
+		@include breakpoint(sm) {
+			display: inline-block;
+		}
+	}
+}
