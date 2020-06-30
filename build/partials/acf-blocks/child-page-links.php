@@ -14,7 +14,7 @@ if ( $parent_page ) :
 	);
 
 	if ( get_the_ID() !== $parent_page ) {
-		$args['post__not_in'] = get_the_ID();
+		$args['post__not_in'] = array( get_the_ID() );
 	}
 
 	$child_pages = get_posts( $args );
