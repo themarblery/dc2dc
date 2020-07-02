@@ -41,3 +41,13 @@ function dc2dc_go_design_styles( $styles ) {
 	return $styles;
 }
 add_filter( 'go_design_styles', 'dc2dc_go_design_styles' );
+
+/**
+ * Enqueue scripts for the admin.
+ *
+ * @return void
+ */
+function dc2dc_admin_enqueue_scripts() {
+	wp_enqueue_script( 'jquery-mask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js', array( 'jquery' ), '1.14.16', true );
+}
+add_action( 'admin_enqueue_scripts', 'dc2dc_admin_enqueue_scripts' );

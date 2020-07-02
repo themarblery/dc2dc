@@ -34,14 +34,6 @@ p {
 				margin: $margin;
 			}
 
-			&:first-child {
-				margin-top: 0;
-			}
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-
 			@if $mobile-font-size {
 				@include breakpoint(md, max) {
 					font-size: rem($mobile-font-size);
@@ -59,14 +51,6 @@ p {
 			}
 			@if $margin {
 				margin: $margin;
-			}
-
-			&:first-child {
-				margin-top: 0;
-			}
-
-			&:last-child {
-				margin-bottom: 0;
 			}
 
 			@if $mobile-font-size {
