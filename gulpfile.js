@@ -279,9 +279,15 @@ gulp.task('i18n', () => {
 gulp.task('serve', (done) => {
 	browserSync.init(
 		{
-			proxy: {
-				target: `${protocol}://${host}`,
-			},
+			proxy: 'https://y4q.238.myftpupload.com/',
+			files: ['build/**'],
+			serveStatic: ['build'],
+			rewriteRules: [
+				{
+					match: 'wp-content/themes/dc2dc/css/main.css?ver=1.0.0',
+					replace: '/css/main.css',
+				},
+			],
 		},
 		() => {
 			console.log('SITE WATCHING FOR CHANGES');
