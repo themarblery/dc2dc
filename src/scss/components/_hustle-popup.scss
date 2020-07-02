@@ -1,0 +1,120 @@
+.hustle-layout {
+	background: #fff;
+	padding: rem(20);
+}
+
+.hustle-group-title {
+	border-bottom: none !important;
+}
+
+.hustle-title {
+	font-weight: bold !important;
+}
+
+.hustle-button {
+	background: $primary-color;
+	border-radius: rem(100) !important;
+	color: #fff;
+	font-size: rem(12) !important;
+	font-weight: 600 !important;
+	height: auto !important;
+	letter-spacing: rem(3) !important;
+	line-height: rem(12) !important;
+	overflow: hidden;
+	overflow-wrap: break-word;
+	word-break: break-word;
+	padding: rem(28) rem(32) !important;
+	text-align: center;
+	text-rendering: optimizeLegibility;
+	text-transform: uppercase;
+	vertical-align: bottom;
+
+	&::after {
+		content: " ";
+		background: currentColor;
+		display: block;
+		height: rem(10);
+		position: absolute;
+		right: 2rem;
+		left: 2rem;
+		bottom: 0;
+		transform: translateY(100%);
+		transition: transform .2s cubic-bezier(.7,0,.3,1),-webkit-transform .2s cubic-bezier(.7,0,.3,1);
+	}
+
+	&:hover,
+	&:focus {
+		background: #000;
+		color: #fff;
+
+		&::after {
+			transform: translateY(0);
+		}
+	}
+}
+
+.hustle-popup {
+	background: rgba(black, .5);
+
+	.hustle-icon-close {
+		margin-right: 0 !important;
+	}
+
+	.hustle-layout {
+		padding: 4vw;
+	}
+}
+
+.hustle-slidein {
+
+	.hustle-slidein-content {
+		box-shadow: 0 0 rem(30) rgba(black, .3);
+	}
+
+	.hustle-layout {
+		background: rgba(white, .95);
+	}
+
+	.hustle-info {
+		max-width: rem(500) !important;
+	}
+
+	.hustle-content {
+		padding-left: 0 !important;
+	}
+
+	.hustle-content-wrap {
+		padding: 0 !important;
+	}
+
+	.hustle-group-title {
+		padding-bottom: 0 !important;
+	}
+
+	.hustle-button {
+		padding: rem(18) rem(20) !important;
+	}
+
+	.hustle-image {
+		align-self: flex-start;
+		flex: 0 0 rem(100) !important;
+		height: rem(120) !important;
+		max-width: rem(100) !important;
+	}
+
+	.hustle-button-close {
+		background: $primary-color !important;
+	}
+
+	.hustle-icon-close {
+		width: rem(12) !important;
+	}
+
+	&.hustle-slidein-position--south-east {
+
+		.hustle-button-close {
+			right: auto !important;
+			left: 0 !important;
+		}
+	}
+}
