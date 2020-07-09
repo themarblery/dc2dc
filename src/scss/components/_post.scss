@@ -1,0 +1,158 @@
+.blog {
+
+	.post {
+		margin: 5vw;
+
+		&__inner {
+			margin-left: auto;
+			margin-right: auto;
+
+			@include breakpoint(md) {
+				display: flex;
+				flex-direction: row-reverse;
+			}
+
+			@include breakpoint(lg) {
+				flex-direction: row;
+			}
+		}
+
+		&__thumbnail {
+			flex: none;
+			max-height: none;
+			padding: 0;
+
+			&::after {
+				display: none;
+			}
+
+			a,
+			img {
+				display: block;
+			}
+
+			a {
+				background: $stripes, $primary-to-secondary;
+				overflow: hidden;
+				padding-bottom: 66%;
+				position: relative;
+
+				&::after {
+					@include absolute-fill;
+					content: " ";
+					background: url("../images/conley-for-congress-stacked-light.png");
+					background-repeat: no-repeat;
+					background-size: 60%;
+					background-position: center;
+					filter: grayscale(1) brightness(200%);
+					mix-blend-mode: overlay;
+					opacity: .1;
+				}
+
+				&:hover,
+				&:focus {
+
+					img {
+						opacity: .5;
+						transform: scale(1.1);
+					}
+				}
+			}
+
+			img {
+				opacity: .8;
+				transition-property: opacity, transform;
+				z-index: 2;
+			}
+
+			@include breakpoint(md, max) {
+				margin-bottom: 5vw;
+			}
+
+			@include breakpoint(md) {
+				width: 30%;
+				margin-left: 5vw;
+			}
+
+			@include breakpoint(lg) {
+				width: 40%;
+				margin-left: 0;
+				margin-right: 5vw;
+			}
+
+			@include breakpoint(xl) {
+				width: 50%;
+				margin-left: 0;
+				margin-right: 5vw;
+			}
+		}
+
+		&__body {
+			align-self: center;
+		}
+
+		&__header,
+		&__meta--wrapper {
+			text-align: left;
+		}
+
+		&__header {
+			padding: 0 !important;
+		}
+
+		&__title {
+			margin-top: rem(-10);
+		}
+
+		&__meta {
+			justify-content: flex-start;
+			margin-top: 2vw;
+
+			&--wrapper {
+				margin-top: 0;
+			}
+
+			@include breakpoint(md, max) {
+				display: block;
+
+				li {
+					margin-left: 0;
+					margin-bottom: 1vw;
+				}
+
+				.post-author {
+
+					.meta-icon {
+						left: rem(4);
+					}
+				}
+			}
+		}
+
+		&__content {
+
+			p {
+				width: auto !important;
+				max-width: none !important;
+				margin: 0 !important;
+			}
+		}
+	}
+}
+
+.single {
+
+	.post {
+
+		&__thumbnail {
+			max-width: var(--go--max-width);
+			max-height: none;
+			margin: 2vw auto !important;
+			padding: 0;
+
+			img {
+				position: static;
+			}
+		}
+	}
+}
