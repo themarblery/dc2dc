@@ -4,35 +4,145 @@
 	top: 0;
 }
 
-.header__titles {
-	width: 100%;
-	max-width: rem(300);
+.header {
 
-	@include breakpoint(menu, max) {
-		margin: 0 auto;
-	}
+	&__inner {
 
-	@include breakpoint(menu) {
-		flex: 1 1 auto;
-	}
-}
+		> .header__extras {
 
-.header__navigation {
-
-	a {
-		font-family: $primary-font-stack !important;
-
-		@include breakpoint(menu) {
-
-			@include breakpoint(1200px, max) {
-				font-size: rem(12);
-				letter-spacing: rem(2);
+			@include breakpoint(menu) {
+				display: none;
 			}
 		}
 	}
 
-	@include breakpoint(menu) {
-		flex: none;
-		padding-left: 4vw;
+	&__titles {
+		width: 100%;
+		max-width: rem(300);
+
+		@include breakpoint(menu, max) {
+			margin: 0 auto;
+		}
+
+		@include breakpoint(menu) {
+			flex: 1 1 auto;
+		}
+	}
+
+	&__navigation {
+
+		a {
+			font-family: $primary-font-stack !important;
+
+			@include breakpoint(menu) {
+
+				@include breakpoint(1200px, max) {
+					font-size: rem(12);
+					letter-spacing: rem(2);
+				}
+			}
+		}
+
+		&-inner {
+			flex: none;
+			width: 100%;
+
+			@include breakpoint(menu, max) {
+				flex: none !important;
+
+				> div {
+
+					&,
+					.primary-menu {
+						position: static !important;
+						overflow: visible !important;
+					}
+				}
+
+				&:first-child {
+
+					.header__extras {
+						display: none;
+					}
+				}
+			}
+
+			@include breakpoint(menu) {
+
+				&:first-child {
+					display: flex;
+					align-content: center;
+					justify-content: flex-end;
+					margin-bottom: rem(10);
+
+					.header__extras {
+						order: -1;
+						margin-left: 0;
+						margin-right: rem(10);
+					}
+
+					.header__search-toggle {
+						padding: 0;
+					}
+				}
+
+				.menu-secondary-menu-container {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+				}
+
+				.secondary-menu {
+
+					.menu-item {
+						margin-left: rem(5);
+
+						a {
+							background: $gray-l;
+							color: $gray-xd;
+							line-height: 1.2;
+							padding: rem(10) rem(15);
+
+							&::after {
+								display: none;
+							}
+
+							&:hover,
+							&:focus {
+								background: $secondary-color;
+								color: #fff;
+							}
+						}
+
+						&--primary {
+
+							a {
+								background: $primary-color;
+								color: #fff;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@include breakpoint(menu, max) {
+			display: block;
+			overflow: auto;
+			padding: 0 !important;
+
+			&-wrap {
+				display: flex;
+				flex-direction: column-reverse;
+				justify-content: center;
+				padding: rem(80) 0;
+			}
+		}
+
+		@include breakpoint(menu) {
+			flex: none;
+			flex-wrap: wrap;
+			padding-left: 4vw;
+		}
 	}
 }

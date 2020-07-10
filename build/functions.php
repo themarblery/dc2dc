@@ -8,6 +8,7 @@
 
 define( 'DC2DC_THEME_VERSION', '1.0.0' );
 
+require_once 'functions/menus.php';
 require_once 'functions/media-library.php';
 require_once 'functions/enqueue.php';
 require_once 'functions/helpers.php';

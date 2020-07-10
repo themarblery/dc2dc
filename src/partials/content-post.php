@@ -11,7 +11,7 @@
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	<div class="post__inner alignwide">
-		<div class="post__thumbnail">
+		<div class="post__thumbnail <?php echo esc_attr( has_post_thumbnail() ? 'has-thumbnail' : '' ); ?>">
 			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<?php the_post_thumbnail(); ?>

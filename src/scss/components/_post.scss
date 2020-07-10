@@ -32,22 +32,10 @@
 			}
 
 			a {
-				background: $stripes, $primary-to-secondary;
+				background: $primary-to-secondary;
 				overflow: hidden;
 				padding-bottom: 66%;
 				position: relative;
-
-				&::after {
-					@include absolute-fill;
-					content: " ";
-					background: url("../images/conley-for-congress-stacked-light.png");
-					background-repeat: no-repeat;
-					background-size: 60%;
-					background-position: center;
-					filter: grayscale(1) brightness(200%);
-					mix-blend-mode: overlay;
-					opacity: .1;
-				}
 
 				&:hover,
 				&:focus {
@@ -63,6 +51,25 @@
 				opacity: .8;
 				transition-property: opacity, transform;
 				z-index: 2;
+			}
+
+			&:not(.has-thumbnail) {
+
+				a {
+					background: $stripes, $primary-to-secondary;
+
+					&::after {
+						@include absolute-fill;
+						content: " ";
+						background: url("../images/conley-for-congress-stacked-light.png");
+						background-repeat: no-repeat;
+						background-size: 60%;
+						background-position: center;
+						filter: grayscale(1) brightness(200%);
+						mix-blend-mode: overlay;
+						opacity: .1;
+					}
+				}
 			}
 
 			@include breakpoint(md, max) {
