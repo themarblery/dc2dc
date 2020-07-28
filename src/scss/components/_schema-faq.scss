@@ -1,0 +1,14 @@
+.schema-faq-section {
+
+	& + & {
+		margin-top: rem(40);
+	}
+}
+
+.schema-faq-question {
+	@extend %h5;
+}
+
+.schema-faq-answer {
+	margin-top: rem(5);
+}

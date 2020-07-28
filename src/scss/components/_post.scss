@@ -48,7 +48,8 @@
 			}
 
 			img {
-				opacity: .8;
+				height: 100%;
+				object-fit: cover;
 				transition-property: opacity, transform;
 				z-index: 2;
 			}
@@ -156,6 +157,10 @@
 			max-height: none;
 			margin: 2vw auto !important;
 			padding: 0;
+
+			&::after {
+				display: none;
+			}
 
 			img {
 				position: static;
