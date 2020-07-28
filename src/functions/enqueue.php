@@ -51,3 +51,30 @@ function dc2dc_admin_enqueue_scripts() {
 	wp_enqueue_script( 'jquery-mask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js', array( 'jquery' ), '1.14.16', true );
 }
 add_action( 'admin_enqueue_scripts', 'dc2dc_admin_enqueue_scripts' );
+
+/**
+ * Output scripts in the <head>.
+ *
+ * @return void
+ */
+function dc2dc_header_scripts() {
+	global $post;
+	$scripts = get_field( 'header_scripts', $post->ID );
+	if ( $scripts ) {
+		echo $scripts; // phpcs:ignore
+	}
+}
+add_action( 'wp_head', 'dc2dc_header_scripts' );
+
+/**
+ * Output scripts in the <head>.
+ *
+ * @return void
+ */
+function dc2dc_footer_scripts() {
+	$scripts = get_field( 'footer_scripts' );
+	if ( $scripts ) {
+		echo $scripts; // phpcs:ignore
+	}
+}
+add_action( 'wp_footer', 'dc2dc_footer_scripts' );
