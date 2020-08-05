@@ -13,6 +13,10 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: src/author.php:16
+msgid "Author: %s"
+msgstr ""
+
 #: src/functions/acf.php:21
 msgid "DC2DC Blocks"
 msgstr ""

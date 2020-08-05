@@ -1,0 +1,15 @@
+.has-medium-padding {
+	padding: var(--go--spacing--vertical) !important;
+
+	@include breakpoint(md) {
+		padding: calc(var(--go--spacing--vertical--lg) * .5) !important;
+	}
+}
+
+.has-large-padding {
+	padding: calc(var(--go--spacing--vertical--lg)) !important;
+
+	@include breakpoint(md) {
+		padding: calc(var(--go--spacing--vertical--lg) * .75) !important;
+	}
+}

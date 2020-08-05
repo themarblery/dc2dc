@@ -2,8 +2,36 @@
 /**
  * File: archive.php (for archives and blog landing).
  *
- * @package Go
+ * @package dc2dc
  */
+
+/**
+ * Change the page title.
+ *
+ * @param array $args Array of title args.
+ * @return array
+ */
+function dc2dc_go_page_title_args( $args ) {
+	$args['custom'] = false;
+	return $args;
+}
+add_filter( 'go_page_title_args', 'dc2dc_go_page_title_args' );
+
+/**
+ * Add Blog to the body class of all pages.
+ *
+ * @param array $classes The array of body classes.
+ * @return array
+ */
+function dc2dc_blog_body_class( $classes ) {
+	// If not the home page add the "blog" class to the body tag.
+	if ( ! in_array( 'blog', $classes, true ) ) {
+		$classes[] = 'blog';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'dc2dc_blog_body_class' );
 
 get_header();
 
