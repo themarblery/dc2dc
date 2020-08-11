@@ -29,6 +29,14 @@ msgstr ""
 msgid "Show child page links for the selected page in a list."
 msgstr ""
 
+#: src/functions/acf.php:84
+msgid "Snippets"
+msgstr ""
+
+#: src/functions/acf.php:85
+msgid "Grid of items with title, description and link."
+msgstr ""
+
 #: src/functions/menus.php:16
 msgid "Secondary"
 msgstr ""

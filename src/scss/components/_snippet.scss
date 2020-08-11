@@ -1,0 +1,91 @@
+$snippet-border-size: 10;
+
+.snippet {
+	background: $gray-xl;
+	border: rem($snippet-border-size) solid $gray-l;
+	padding: rem(30);
+
+	&__title {
+		background: $primary-color;
+		color: #fff;
+		display: inline-block !important;
+		font-size: rem(24);
+		font-weight: bold;
+		margin-top: 0;
+		padding: .5em .75em;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+			text-decoration-skip-ink: auto;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&__description {
+
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+
+		ul {
+			margin-bottom: 0;
+		}
+
+		li {
+			list-style-type: square;
+			margin-top: rem(5) !important;
+		}
+	}
+
+	&__link {
+		color: $secondary-color;
+		display: inline-block;
+		font-size: rem(14);
+		font-weight: 600;
+		letter-spacing: rem(3);
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+}
+
+.snippets {
+	background: $gray-l;
+	border: rem($snippet-border-size) solid $gray-l;
+	border-right-width: 0;
+	border-bottom-width: 0;
+	display: flex;
+	flex-wrap: wrap;
+
+	.snippet {
+		border-left-width: 0;
+		border-top-width: 0;
+		display: flex;
+		flex-direction: column;
+		flex: 1 100%;
+		max-width: 100%;
+
+		&__link {
+			margin-top: auto;
+		}
+
+		@include breakpoint(md) {
+			flex: 1 50%;
+			max-width: 50%;
+		}
+
+		@include breakpoint(lg) {
+			flex: 1 33.33%;
+			max-width: 33.33%;
+		}
+
+		// @include breakpoint(xl) {
+		// 	flex: 1 25%;
+		// 	width: 25%;
+		// }
+	}
+}

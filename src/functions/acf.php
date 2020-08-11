@@ -79,6 +79,17 @@ if ( function_exists( 'acf_register_block' ) ) {
 					'align' => array( 'full' ),
 				),
 			),
+			array(
+				'name'        => 'snippets',
+				'title'       => __( 'Snippets', 'dc2dc' ),
+				'description' => __( 'Grid of items with title, description and link.', 'dc2dc' ),
+				'icon'        => 'editor-alignleft',
+				'keywords'    => array( 'feature' ),
+				'align'       => 'wide',
+				'supports'    => array(
+					'align' => array( 'wide' ),
+				),
+			),
 		);
 
 		foreach ( $blocks as $args ) {
